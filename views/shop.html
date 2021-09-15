@@ -1,0 +1,30 @@
+{{> header}}
+
+    <button style="position: fixed;top: 10px;right: 10px; padding-left: 0; padding-right: 0; border-radius: 50px; background-color: Transparent; border: none;" onclick="openNav()">
+        <img src="https://img.icons8.com/cotton/2x/menu.png" style="width: 50px;">
+      </button>
+
+
+    <div class="jumbotron ml-2 mr-2" style="background: none;">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 ml-3 mr-3">
+            {{#plantes_list}}
+                <div class="col mb-3">
+                    <div class="card text-center shadow-sm h-100">
+                        <img class="card-img-top" src="{{image}}" style="height: 20rem;">
+                        <div class="card-body">
+                            <h4 class="card-title">{{name}}</h4>
+                          
+                            <a href="/shop-form/{{id}}" class="btn btn-lg btn-secondary" role="button" title="{{name}}" data-toggle="popover" data-trigger="hover" data-content="{{description}} <br /> Stock : {{stock}}">
+                                Prix : {{prix}}
+                            </a>
+                          
+                        </div>
+                      </div>
+                </div>
+            {{/plantes_list}}
+            </div>
+    </div>
+        
+
+
+{{> footer}}

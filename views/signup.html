@@ -1,0 +1,45 @@
+{{> header}}
+
+<button style="position: fixed;top: 10px;right: 10px; padding-left: 0; padding-right: 0; border-radius: 50px; background-color: Transparent; border: none;" onclick="openNav()">
+  <img src="https://img.icons8.com/cotton/2x/menu.png" style="width: 40px;">
+</button>
+
+
+<div class="container bg-text">
+  <div class="row justify-content-center">
+    <img class="img-fluid" src="/ressources/logoprojecto.png">
+  </div>
+  <div class="row justify-content-center mb-5">
+    <div class="row">
+      <h3 style="font-family: Helvetica; color: white;">
+        Cliquez pour obtenir des points échangeables pour des récompenses tout en sauvant l'environment !
+      </h3>
+    </div>
+
+  </div>
+  <div class="row justify-content-center">
+      <div class="container d-flex justify-content-center">
+        <h1 class="display-5">Inscrivez-vous</h1>
+      </div>
+	  {{#wrong}}
+	  <h3 class="container d-flex justify-content-center red" style="color: red;">Vérifiez votre mot de passe</h3>
+	  {{/wrong}}
+	  {{#already}}
+	  <h3 class="container d-flex justify-content-center red" style="color: red;">Ce nom d'utilisateur est déjà utilisé</h3>
+	  {{/already}}
+      <div class="form-group col-lg-offset-3 col-lg-4">
+        <form action="/signup" method="POST">
+            <label for="name">Nom d'utilisateur</label>
+            <input class="form-control mb-4" type="text" id="name" name="name">
+            <label for="password">Mot de passe</label>
+            <input class="form-control mb-4" type="password" id="password" name="password">
+			<label for="password2">Confirmez votre mot de passe</label>
+            <input class="form-control mb-4" type="password" id="password2" name="password2">
+			<a href="/" class="btn btn-secondary btn-lg">Retour</a>
+            <input class="btn btn-warning btn-lg" type="submit" value="Inscription">&nbsp;
+          </form>
+      </div>
+  </div>
+</div>
+
+{{> footer}}

@@ -1,0 +1,59 @@
+{{> header}}
+
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="card" style="background-color: rgb(43, 43, 41); width: 500px;">
+
+        <div class="card-body" style="height: 780px;color: black;">
+            <div style="height: 400px;">
+            <hr style="height: 2px; color: #FFF; background-color: #FFF; width: 50%; border: none;">
+            <div class="row justify-content-center align-items-center h-25 mt-2">
+                <h3 class="card-text" style="color: white;">Changer l'adresse</h3>
+            </div>
+            
+                <div class="form-group row justify-content-center align-items-center h-25 mt-2">
+                    {{#info}}
+                    <form action="/changeaddress" method="POST">
+                        <label for="nom">Nom complet:</label>
+                        <input class="form-control mb-4" type="text" id="nom" name="nom" value="{{nom}}" required>
+                        <label for="adresse">Adresse:</label>
+                        <input class="form-control mb-4" type="text" id="adresse" name="adresse" value="{{address}}" required>
+                        <label for="ville">Ville</label>
+                        <input class="form-control mb-4" type="text" id="ville" name="ville" value="{{ville}}" required>
+                        <label for="postal">Code Postal</label>
+                        <input class="form-control mb-4" type="text" id="postal" name="postal" value="{{code}}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" required>
+                        <label for="pays">Pays</label>
+                        <input class="form-control mb-4" type="text" id="pays" name="pays" value="{{pays}}" required>
+                        <div class="form-group row justify-content-center align-items-center h-25 mt-2">
+                            <a href="/profile" class="btn btn-secondary btn-lg">Retour</a>
+                            &nbsp;
+                            <input class="btn btn-warning btn-lg" type="submit" value="Changer">
+                        </div>
+                    </form>
+                    {{/info}}
+                    {{^info}}
+                    <form action="/changeaddress" method="POST">
+                        <label for="nom">Nom complet:</label>
+                        <input class="form-control mb-4" type="text" id="nom" name="nom" value="{{nom}}" required>
+                        <label for="adresse">Adresse:</label>
+                        <input class="form-control mb-4" type="text" id="adresse" name="adresse" value="{{address}}" required>
+                        <label for="ville">Ville</label>
+                        <input class="form-control mb-4" type="text" id="ville" name="ville" value="{{ville}}" required>
+                        <label for="postal">Code Postal</label>
+                        <input class="form-control mb-4" type="text" id="postal" name="postal" value="{{code}}" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" required>
+                        <label for="pays">Pays</label>
+                        <input class="form-control mb-4" type="text" id="pays" name="pays" value="{{pays}}" required>
+                        <div class="form-group row justify-content-center align-items-center h-25 mt-2">
+                            <a href="/profile" class="btn btn-secondary btn-lg">Retour</a>
+                            &nbsp;
+                            <input class="btn btn-warning btn-lg" type="submit" value="Changer">
+                        </div>
+                    </form>
+                    {{/info}}
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{> footer}}

@@ -1,0 +1,26 @@
+{{> header}}
+
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="card" style="background-color: rgb(43, 43, 41); width: 500px;">
+        
+       <div class="card-body" style="height: 500px;color: white;">
+		   <hr style="height: 2px; color: #FFF; background-color: #FFF; width: 50%; border: none;">
+		   <div class="row justify-content-center align-items-center h-25 mt-2">
+            <h3 class="card-text" style="color: white;">Changer la photo de profile</h3>
+            
+           </div>
+           
+           <form action="/upload" method="post" enctype="multipart/form-data" class="row justify-content-center align-items-center h-25 mt-2">
+            <p><img id="output" width="200" /></p>
+            <h4>Choisir une photo de profile:</h4>
+            <input type="file" name="image" id="image" multiple accept="image/*" onchange="loadFile(event)">
+            <input type="submit" value="Changer" name="submit">&nbsp;
+            <a href="/profile" class="btn btn-secondary btn-sm">Retour</a>
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+
+{{> footer}}

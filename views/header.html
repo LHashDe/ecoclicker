@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>EcoloClicker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+          $('[data-toggle="popover"]').popover({html: true});   
+      });
+
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      
+      /* Set the width of the side navigation to 0 */
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      } 
+    </script>
+
+  <link rel="stylesheet" type="text/css" href="css/sideBar.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/background.css">
+  <script type="text/javascript" src="/js/script.js"></script>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script>
+  <script type="text/javascript" src="/js/cookie.notice.js"></script>
+  </head>
+      
+  <body>
+  
+      <div id="mySidenav" class="sidenav" style="overflow: hidden;">
+        <a href="javascript:void(0);" class="closebtn" onclick="closeNav()">&times;</a>
+		{{#authenticated}}
+		<a href="javascript:void(0);">Bonjour, {{name}}!</a>
+		<hr style="height: 2px; color: #FFF; background-color: #FFF; width: 50%; border: none;">
+		{{/authenticated}}
+		<a href="/">Accueil</a>
+		{{#authenticated}}
+        <a href="/profile">Profile</a>
+        <a href="/shop">Boutique</a>
+		{{/authenticated}}
+        <a href="/ranking">Classement</a>
+        <a href="/aboutus">À propos</a>
+
+		{{#authenticated}}
+		{{#inShop}}
+        <form action="/search" class="form-inline" style="margin-top: 16px;">
+            <input class="form-control mr-sm-2" name = "query" style="width: 115px; margin-left: 34px;" type="search" placeholder="Search plant" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+		{{/inShop}}
+        <div class="justify-content-center" style="height: 62%;">
+            <form action="/logout" method="get">
+                <input type="submit" class="btn btn-danger" style="position:absolute;bottom:25px;right:60px;" 
+                value="Deconnexion" name="logout"/>
+            </form>
+        </div>
+        {{/authenticated}}
+
+    </div>
+    

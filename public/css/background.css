@@ -1,0 +1,10 @@
+html, body {
+    height: 100%;
+  }
+  body{
+    background: url(https://i.pinimg.com/originals/78/07/53/7807536526921125c4bcf99b18894668.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }

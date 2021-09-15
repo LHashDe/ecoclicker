@@ -1,0 +1,82 @@
+{{> header}}
+
+
+
+<!-- TODO -->
+
+
+{{^authenticated}}
+  <button style="position: fixed;top: 10px;right: 10px; padding-left: 0; padding-right: 0; border-radius: 50px; background-color: Transparent; border: none;" onclick="openNav()">
+    <img src="https://img.icons8.com/cotton/2x/menu.png" style="width: 100px;">
+  </button>
+
+
+  <div class="container bg-text">
+    <div class="row justify-content-center">
+      <img class="img-fluid" src="/ressources/logoprojecto.png">
+    </div>
+    <div class="row justify-content-center mb-5">
+      <div class="row">
+        <h3 style="font-family: Helvetica; color: white;">
+          Cliquez pour obtenir des points échangeables pour des récompenses tout en sauvant l'environment !
+        </h3>
+      </div>
+
+    </div>
+    <div class="row justify-content-center">
+      <div class="container d-flex justify-content-center">
+        <h1 class="display-5">Connectez-vous</h1>
+      </div>
+      {{#failed_name}}
+        <h3 class="container d-flex justify-content-center red" style="color: red;">Nom d'utilisateur introuvable</h3>
+      {{/failed_name}}
+      {{#failed_pass}}
+        <h3 class="container d-flex justify-content-center red" style="color: red;">Mot de passe incorrect</h3>
+      {{/failed_pass}}
+      <div class="form-group col-lg-offset-3 col-lg-4">
+        <form action="/login" method="POST">
+          <label for="name">Nom d'utilisateur</label>
+          <input class="form-control mb-4" type="text" id="name" name="name">
+          <label for="password">Mot de passe</label>
+          <input class="form-control mb-4" type="password" id="password" name="password">
+          <input class="btn btn-primary btn-lg" type="submit" value="Connexion">&nbsp;
+          <a href="/signup" class="btn btn-info btn-lg">S'inscrire</a>
+        </form>
+      </div>
+    </div>
+  </div>
+{{/authenticated}}
+
+{{#authenticated}}
+
+  <body onload="initElement();refresh_messages();">
+    <div class="game">
+      <button style="position: fixed;top: 10px;right: 10px; padding-left: 0; padding-right: 0; border-radius: 50px; background-color: Transparent; border: none;" onclick="openNav()">
+        <img src="https://img.icons8.com/cotton/2x/menu.png" style="width: 100px;">
+      </button>
+      <div class="score">
+        SCORE:
+      </div>
+      <div class="scorevalue" id="scorevalue">
+
+      </div>
+      <div data-video="7NOSDKb0HlU" data-autoplay="0" data-loop="1" id="youtube-audio">
+      </div>
+      <div class="hitbox" id="hitbox">
+      </div>
+      <div class="tchat" id="tchat">
+        <div class = "messagesBlock" id="messagesBlock">
+        {{#messages}}
+          <p> <strong>{{name}}</strong> : {{message}} </p>
+        {{/messages}}
+        </div>
+        <form id="form" class="form-inline justify-content-center" action="javascript:postMessage()">
+          <input class="form-control m-2" type="text" name="text" id="messagetext" autofocus>
+          <input class="form-control btn btn-primary m-1" type="submit" id="messagebtn" value="Envoyer">
+        </form>
+      </div>
+    </div>
+  </body>
+{{/authenticated}}
+
+{{> footer}}
